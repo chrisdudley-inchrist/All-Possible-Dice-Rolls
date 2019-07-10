@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,14 +29,15 @@ public class Main {
 
 
         if (rollsRemaining == 0) {
-            List<Integer> arrayAdd = arr;
+            List<Integer> arrayAdd = new ArrayList<>();
+            arrayAdd.addAll(arr);
             allSolutions.add(arrayAdd);
         } else {
             for (int i = 1; i <= 6; i++) {
                 arr.add(i);
                 allPossibleDiceRollsHelper(rollsRemaining - 1, arr, allSolutions);
 
-                arr.remove(i);
+                arr.remove(arr.size()-1);
             }
         }
     }
